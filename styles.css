@@ -132,5 +132,27 @@ nav ul li a:hover {
     color: #000;
 }
 
+/* Footer-references Section */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 3rem; 
+    background-color: #fff;
+}
 
+.references h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.references ul {
+    list-style: none;
+    padding: 0;
+}
+
+.references li {
+    margin-bottom: 3px;
+}
 
