@@ -89,7 +89,6 @@ nav ul li a:hover {
     padding: 3rem;
     min-height: 12rem; 
     background-image: url('./Images/hero_background_image.webp');
-    opacity: 0.8;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -101,7 +100,6 @@ nav ul li a:hover {
     font-size: 3rem; 
     line-height: 1.2;
     font-weight: bold;
-    opacity: 1;
 }
 
 /* Student ID Section */
