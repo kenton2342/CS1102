@@ -147,12 +147,8 @@ footer {
     color: #333;
 }
 
-.references ul {
+.references li {
     list-style: none;
     padding: 0;
-}
-
-.references li {
     margin-bottom: 3px;
 }
-
