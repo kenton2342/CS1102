@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://www.cityu.edu.hk/">
+                <img src="./Images/Cityu_logo.jpeg" alt="CityU Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">website 1</a></li>
+                        <li><a href="#">website 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="./quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="quiz">
+        <div id="question"></div>
+        <div id="options"></div>
+        <div id="result"></div>
+        <button id="next" style="display: none;">Next</button>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                options: ["Paris", "London", "Berlin", "Madrid"],
+                correct: "Paris"
+            },
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                correct: "4"
+            }
+        ];
+
+        // Initialize variables
+        let currentQuestion = 0;
+        let score = 0;
+
+        // Get DOM elements
+        const questionDiv = document.getElementById('question');
+        const optionsContainer = document.getElementById('options');
+        const resultDiv = document.getElementById('result');
+        const nextButton = document.getElementById('next');
+
+        // Event listener for option clicks using event delegation
+        optionsContainer.addEventListener('click', function(e) {
+            if (optionsContainer.classList.contains('answered')) return;
+            if (e.target.classList.contains('option')) {
+                const selectedAnswer = e.target.dataset.answer;
+                checkAnswer(selectedAnswer);
+                optionsContainer.classList.add('answered');
+            }
+        });
+
+        // Event listener for the Next button
+        nextButton.addEventListener('click', function() {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                renderQuestion();
+            } else {
+                showFinalScore();
+            }
+        });
+
+        // Function to render the current question
+        function renderQuestion() {
+            if (currentQuestion < quizData.length) {
+                const questionData = quizData[currentQuestion];
+                questionDiv.textContent = questionData.question;
+                optionsContainer.innerHTML = '';
+                optionsContainer.classList.remove('answered');
+                questionData.options.forEach(option => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.classList.add('option');
+                    optionDiv.textContent = option;
+                    optionDiv.dataset.answer = option;
+                    optionsContainer.appendChild(optionDiv);
+                });
+                resultDiv.textContent = '';
+                nextButton.style.display = 'none';
+            } else {
+                showFinalScore();
+            }
+        }
+
+        // Function to check the selected answer
+        function checkAnswer(selectedAnswer) {
+            const questionData = quizData[currentQuestion];
+            const correctAnswer = questionData.correct;
+            if (selectedAnswer === correctAnswer) {
+                score++;
+                resultDiv.textContent = 'You are correct';
+                resultDiv.style.color = 'green';
+                document.querySelector(`.option[data-answer="${selectedAnswer}"]`)
+                    .classList.add('correct');
+            } else {
+                resultDiv.textContent = `You are incorrect (correct answer is ${correctAnswer})`;
+                resultDiv.style.color = 'red';
+                document.querySelector(`.option[data-answer="${selectedAnswer}"]`)
+                    .classList.add('incorrect');
+                document.querySelector(`.option[data-answer="${correctAnswer}"]`)
+                    .classList.add('correct');
+            }
+            nextButton.style.display = 'block';
+        }
+
+        // Function to display the final score
+        function showFinalScore() {
+            questionDiv.textContent = `You have completed the quiz. Your score is ${score} out of ${quizData.length}.`;
+            optionsContainer.style.display = 'none';
+            nextButton.style.display = 'none';
+            resultDiv.textContent = '';
+        }
+
+        // Start the quiz
+        renderQuestion();
+    </script>
+</body>
+</html>
