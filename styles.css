@@ -152,3 +152,75 @@ footer {
     padding: 0;
     margin-bottom: 3px;
 }
+
+
+/* Bottom navigation for button */
+.Bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+.Bottom-nav_button {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.Bottom-nav_button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.previous {
+    margin-left: 20px;
+}
+
+.next {
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+
+/* Content of Blockchain Architecture Section */
+.content-Architecture {
+    max-width: 50rem; 
+    margin: 0 auto;
+    padding: 1.5rem 3rem;
+    
+}
+
+.content-Architecture::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./Images/blockchain_Architecture_background.png);
+    opacity: 0.1; 
+    z-index: -1; 
+}
+
+.content-Architecture h2 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    color: #000;
+}
+
+.content-Architecture p {
+    margin-bottom: 1rem;
+    color: #000;
+    font-size: 1rem;
+
+}
