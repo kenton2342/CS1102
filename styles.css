@@ -107,11 +107,11 @@ nav ul li a:hover {
     background-color: #fff;
     color: #000;
     padding: 1.5rem 3rem;
-    font-size: 0.875rem; 
 }
 
 .sid p {
     margin-bottom: 0.5rem;
+    font-size: 0.875rem; 
 }
 
 /* Content Section */
