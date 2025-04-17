@@ -150,6 +150,7 @@ footer {
 .references li {
     list-style: none; 
     padding: 0;
+    font-size: 1em;
     margin-bottom: 3px; 
     text-indent: -0.5in; 
     padding-left: 0.5in; 
