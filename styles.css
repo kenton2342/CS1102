@@ -148,10 +148,13 @@ footer {
 }
 
 .references li {
-    list-style: none;
+    list-style: none; 
     padding: 0;
-    margin-bottom: 3px;
+    margin-bottom: 3px; 
+    text-indent: -0.5in; 
+    padding-left: 0.5in; 
 }
+
 
 
 /* Bottom navigation for button */
